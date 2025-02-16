@@ -19,6 +19,10 @@ const words = [
 
 const roles = ["red", "blue", "neutral", "assassin"];
 
+let isSpymaster = false;
+let isInitialize = false;
+
+var clue_button='<button id="clue" class="comic-button" onclick="cluewriter()">Write Clue</button>';
 var clue='<input id="clue-input" type="text" placeholder="Write here..." name="text" class="input">   <button class="clue_button" onclick="clueshow()">Enter</button>';
 
 function shuffle(array) {
@@ -29,9 +33,11 @@ function shuffle(array) {
 }
 
 function initializeGame() {
+    isInitialize=true;
     const board = document.getElementById("game-board");
     board.innerHTML = "";
 
+    document.getElementById("spymasterButton").disabled = false;
 
     // Shuffle words and roles
     const shuffledWords = [...words].sort(() => 0.5 - Math.random()).slice(0, 25);
@@ -59,6 +65,30 @@ function initializeGame() {
     });
 }
 
+function toggleSpymasterView() {
+
+    if(isInitialize)
+    {
+        isSpymaster = true;
+        const cards = document.querySelectorAll(".card");
+        const spymasterButton = document.getElementById("spymasterButton");
+        
+        cards.forEach(card => {
+            card.classList.add(card.dataset.role);
+        });
+        
+        const clue_div = document.getElementById("clue_div");
+        clue_div.innerHTML=clue_button;
+        
+        spymasterButton.disabled = true;
+    }
+
+    else{
+        alert("Please initialize the game first");
+    }
+    
+}
+
 function resetGame(){
     
     const boardDiv = document.getElementById('game-board');
@@ -68,7 +98,7 @@ function resetGame(){
 function clueshow(){
     const clueInput = document.getElementById('clue-input');
     const clue_div = document.getElementById("clue_div");
-    clue_div.innerHTML = clueInput.value;
+    clue_div.innerHTML = clueInput.value+"<br><br>"+clue_button;
 }
 
 function cluewriter(){
