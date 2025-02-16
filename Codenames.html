@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codenames Clone</title>
+    <link rel="stylesheet" href="Codenames.css">
+</head>
+<body>
+    <div class="d1"> 
+        <img id="logo" src="logo.png"/>
+    </div>
+
+    <div class="controls">
+        <button id="start" class="comic-button" onclick="initializeGame()">New Game</button>
+        <button id="reset" class="comic-button" onclick="resetGame()">Clear Board</button>
+        <button id="reset" class="comic-button" onclick="cluewriter()">Spymaster</button>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <div class="team_card">
+                <div class="team_card_bg" style="background-color: #c91616;">
+                    <h3>Red Team</h3>
+                    <p>-</p>
+                    <p>Operatives</p>
+                    <p>-</p>
+                    <p>Spymaster</p>
+                </div>
+            </div>
+        </div>
+        <div class="center-panel">
+            <div class="game-board" id="game-board"></div>
+        </div>
+        <div class="right-panel">
+            <div class="team_card">
+                <div class="team_card_bg" style="background-color: #61b0f1;">
+                    <h3>Blue Team</h3>
+                    <p>-</p>
+                    <p>Operatives</p>
+                    <p>-</p>
+                    <p>Spymaster</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="clue_div"> 
+        Clue From your team's Spymaster will be displayed here
+    </div>
+    
+    <script src="room.js"></script>
+</body>
+</html>
