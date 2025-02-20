@@ -91,6 +91,7 @@ function toggleSpymasterView() {
 
 function resetGame(){
     
+    isInitialize=false;
     const boardDiv = document.getElementById('game-board');
     boardDiv.innerHTML="";
 }
