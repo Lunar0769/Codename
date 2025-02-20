@@ -1,55 +1,73 @@
-body{
-    background-color:  rgb(175, 37, 79);
+body {
+    background-color: rgb(175, 37, 79);
+    margin: 0;
+    padding: 0;
 }
 
+/* Responsive Container */
 .container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+/* Responsive Box */
 .box {
     width: 30%;
     text-align: center;
 }
 
-.introduction{
+/* Introduction Section (with BG Image) */
+.introduction {
     background-image: url(introbg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 5px solid black;
-    margin: 0%;
+    margin: 0;
+    width: 100%;
+    height: 400px;
 }
 
-.navbar{
+/* Navbar */
+.navbar {
     height: 50px;
-    width: 500;
+    width: 100%;
     background-color: rgb(175, 37, 79);
     overflow: hidden;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
+
 .navbar a {
     color: white;
     text-decoration: none;
     padding: 14px 20px;
     display: inline-block;
-    font-weight: bold
+    font-weight: bold;
 }
+
 .navbar a:hover {
     border-radius: 5px;
     color: yellow;
     cursor: pointer;
 }
+
+/* Responsive Navigation */
 .nav-links {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.introduction_yt{
+/* Introduction YouTube Section */
+.introduction_yt {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,41 +75,49 @@ body{
     background-image: url(introytbg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     border: 5px solid black;
-    margin: 0%;
+    margin: 0;
+    width: 100%;
+    height: 400px;
 }
 
-.play{
+/* Play Section */
+.play {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0%;
+    margin: 0;
     background-image: url(introbg.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     border: 5px solid black;
 }
-.d1{
+
+/* Responsive Text */
+.d1, .d2 {
     align-content: center;
-    height: auto;
     width: auto;
     position: relative;
     font-size: 50px;
+    text-align: center;
 }
-.d2{
-    height: auto;
-    width: auto;
-    align-content: center;
-    position: relative;
-    font-size: 50px;
-}
-.img{
+
+/* Responsive Images */
+.img {
     border: 2px solid whitesmoke;
     border-radius: 3%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
-.room{
+
+/* Room Button */
+.room {
     background-color: rgb(44, 255, 72);
     cursor: pointer;
     border: none;
@@ -102,12 +128,14 @@ body{
     text-decoration: none;
     transition-duration: 300ms;
 }
-.room:hover{
+
+.room:hover {
     padding: 11px 21px;
     font-size: 17px;
     transition-duration: 300ms; 
 }
 
+/* Button Styling */
 .button {
     cursor: pointer;
     text-decoration: none;
@@ -133,29 +161,26 @@ body{
     background-color: brown;
 }
 
-.About{
+/* About Section */
+.About {
     background-image: url(About_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(90, 9, 47); */
     color: white;
     font-size: large;
     border: 5px solid black;
     padding-top: 5px;
     padding-bottom: 10px;
+    width: 100%;
+    height: 400px;
 }
 
-/* cour */
-cont{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Carousel */
 .carousel-container {
     width: 80%;
     max-width: 600px;
@@ -175,6 +200,7 @@ cont{
     border-radius: 5px;
 }
 
+/* Carousel Buttons */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -192,4 +218,96 @@ cont{
 
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+
+/* Adjust for smaller screens */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px;
+    }
+
+    /* Adjust Background Images */
+    .introduction, .introduction_yt, .about {
+        height: 300px;
+    }
+}
+
+/* Adjust for tablets */
+@media (max-width: 768px) {
+    .d1, .d2 {
+        font-size: 35px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 5px;
+    }
+
+    .navbar a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .room {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* Adjust Background Images */
+    .introduction, .introduction_yt, .about {
+        height: 250px;
+        background-size: contain;
+    }
+}
+
+/* Adjust for mobile phones */
+@media (max-width: 480px) {
+    .d1, .d2 {
+        font-size: 28px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .navbar a {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .room {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Adjust Background Images */
+    .introduction, .introduction_yt, .about {
+        height: 200px;
+        background-size: contain;
+    }
 }
